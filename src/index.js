@@ -2,11 +2,10 @@
 import './style.css';
 // Store Task Details
 class Task {
-  constructor(checkbox, description, remove, status) {
+  constructor(checkbox, description, remove) {
     this.title = checkbox;
     this.author = description;
     this.remove = remove;
-    this.status = status;
   }
 }
 // local Storage
@@ -65,11 +64,11 @@ class Events {
 }
 document.addEventListener('DOMContentLoaded', Events.displayTasks);
 // Add EventListening to Task List
-document.querySelector('.addbutton').addEventListener('click', (e) => {
+document.querySelector('.fa-level-down-alt').addEventListener('click', (e) => {
   e.preventDefault();
-  const checkbox = document.querySelector('.fa-square').value;
+  const checkbox = document.querySelector('.fa-square');
   const description = document.querySelector('.task-entry').value;
-  const remove = document.querySelector('.removebutton').value;
+  const remove = document.querySelector('.fa-ellipsis-vertical').value;
   // const status = 'false';
   // New Task List
   const task = new Task(checkbox, description, remove);
