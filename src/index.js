@@ -1,33 +1,85 @@
+/* eslint-disable max-classes-per-file */
 import './style.css';
-
-const Tasks = [
-  {
-    index: 1,
-    description: 'Task One',
-    completed: false,
-  },
-  {
-    index: 2,
-    description: 'Task Two',
-    completed: false,
-  },
-  {
-    index: 3,
-    description: 'Task Three',
-    completed: false,
-  },
-];
-function createTasks() {
-  const taskList = document.querySelector('.added-list');
-  for (let i = 0; i < Tasks.length; i += 1) {
-    const list = `
-    <ul class=" task-items">
-    <li><i class="far fa-square"></i></li>
-    <li class="task-entry">${Tasks[i].description}</li>
-    <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
-    </ul><hr>`;
-
-    taskList.innerHTML += list;
+// Store Task Details
+class Task {
+  constructor(checkbox, description, remove, status) {
+    this.title = checkbox;
+    this.author = description;
+    this.remove = remove;
+    this.status = status;
   }
 }
-document.addEventListener('DOMContentLoaded', createTasks);
+// local Storage
+class Storage {
+  static getTasks() {
+    let tasks;
+    if (localStorage.getItem('tasks') === null) {
+      tasks = [];
+    } else {
+      tasks = JSON.parse(localStorage.getItem('tasks'));
+    }
+    return tasks;
+  }
+
+  static addTask(task) {
+    const tasks = Storage.getTasks();
+    tasks.push(task);
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }
+
+  static removeTask(description) {
+    const tasks = Storage.getTasks();
+    tasks.forEach((task, index) => {
+      if (task.description === description) {
+        tasks.splice(index, 1);
+      }
+    });
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }
+}
+
+// Display Added Tasks
+class Events {
+  static displayTasks() {
+    const tasks = Storage.getTasks();
+    tasks.forEach((task) => Events.addTask(task));
+  }
+
+  static addList(task) {
+    const taskslist = document.querySelector('.added-list');
+    const addedtasks = document.createElement('div');
+    addedtasks.innerHTML = `
+        <ul class=" task-items">
+        <li><i class="far fa-square"></i></li>
+        <li class="task-entry">${task.description}</li>
+        <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+        </ul><hr>`;
+    taskslist.innerHTML += addedtasks;
+  }
+
+  static deleteTask(el) {
+    if (el.classList.contains('fa-ellipsis-vertical')) {
+      el.parentElement.parentElement.remove();
+    }
+  }
+}
+document.addEventListener('DOMContentLoaded', Events.displayTasks);
+// Add EventListening to Task List
+document.querySelector('.addbutton').addEventListener('click', (e) => {
+  e.preventDefault();
+  const checkbox = document.querySelector('.fa-square').value;
+  const description = document.querySelector('.task-entry').value;
+  const remove = document.querySelector('.removebutton').value;
+  // const status = 'false';
+  // New Task List
+  const task = new Task(checkbox, description, remove);
+  // Add Tasks to List and Storage
+  Events.addList(task);
+  Storage.addTask(task);
+});
+// Remove task from storage
+document.querySelector('.fa-ellipsis-vertical').addEventListener('click', (e) => {
+  Events.deleteTask(e.target);
+  Storage.removeTask(e.target.parentElement.previousElementSibling.innerHTML);
+});
+/* eslint-enable max-classes-per-file */
