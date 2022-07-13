@@ -1,3 +1,70 @@
 body {
-    background-color: bisque;
+  background-color: #d3d3d3;
+}
+
+.fa-sync {
+  width: 10px;
+  height: 10px;
+}
+
+.main-list {
+  background-color: #fff;
+  margin: 2%;
+}
+
+.today-content,
+.add-new {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item {
+  border: none;
+}
+
+.task-items {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+}
+
+.clear {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: lightgray;
+  background-color: darkgray;
+  padding: 15px;
+}
+
+.clear a {
+  text-decoration: none;
+  color: black;
+}
+
+hr {
+  margin: 0;
+}
+
+.fa-sync,
+.fa-rotate,
+.fa-fa-square-check,
+.fa-level-down-alt,
+.fa-ellipsis-vertical {
+  cursor: pointer;
+}
+
+.fa-level-down-alt {
+  transform: rotate(90deg);
+}
+
+.fa-square-check {
+  background-color: #fff;
+}
+
+.task-entry {
+  margin-right: 80%;
 }
