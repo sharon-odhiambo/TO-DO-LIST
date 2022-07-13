@@ -41,19 +41,19 @@ class Storage {
 class Events {
   static displayTasks() {
     const tasks = Storage.getTasks();
-    tasks.forEach((task) => Events.addTask(task));
+    tasks.forEach((task) => Storage.addTask(task));
   }
 
   static addList(task) {
     const taskslist = document.querySelector('.added-list');
-    const addedtasks = document.createElement('div');
-    addedtasks.innerHTML = `
+    const inputItem = document.querySelector('.item');
+    // const addedtasks = document.createElement('div');
+    inputItem.innerHTML = `
         <ul class=" task-items">
-        <li><i class="far fa-square"></i></li>
+        <li class="check">${task.checkbox}</li>
         <li class="task-entry">${task.description}</li>
-        <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
         </ul><hr>`;
-    taskslist.innerHTML += addedtasks;
+    taskslist.appendChild(inputItem);
   }
 
   static deleteTask(el) {
@@ -64,21 +64,22 @@ class Events {
 }
 document.addEventListener('DOMContentLoaded', Events.displayTasks);
 // Add EventListening to Task List
-document.querySelector('.fa-level-down-alt').addEventListener('click', (e) => {
+const addButton = document.querySelector('.fa-level-down-alt');
+addButton.addEventListener('click', (e) => {
   e.preventDefault();
-  const checkbox = document.querySelector('.fa-square');
-  const description = document.querySelector('.task-entry').value;
-  const remove = document.querySelector('.fa-ellipsis-vertical').value;
+  const checkbox = '<i class="far fa-square"></i>';
+  const description = document.querySelector('.item').value;
+  // const remove = document.querySelector('.fa-ellipsis-vertical');
   // const status = 'false';
   // New Task List
-  const task = new Task(checkbox, description, remove);
+  const task = new Task(checkbox, description);
   // Add Tasks to List and Storage
   Events.addList(task);
   Storage.addTask(task);
 });
 // Remove task from storage
-document.querySelector('.fa-ellipsis-vertical').addEventListener('click', (e) => {
-  Events.deleteTask(e.target);
-  Storage.removeTask(e.target.parentElement.previousElementSibling.innerHTML);
-});
+// document.querySelector('.fa-ellipsis-vertical').addEventListener('click', (e) => {
+//   Events.deleteTask(e.target);
+//   Storage.removeTask(e.target.parentElement.previousElementSibling.innerHTML);
+// });
 /* eslint-enable max-classes-per-file */
