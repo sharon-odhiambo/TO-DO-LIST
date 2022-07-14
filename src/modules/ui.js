@@ -1,28 +1,33 @@
-import {Task, Storage} from './store.js';
+import { forEach } from 'lodash';
+import {Storage} from './store.js';
 // Display Added Tasks
-const checkbox = document.createElement('div');
-checkbox.innerHTML = '<i class="fas fa-check"></i>';
-const description = document.querySelector('.item').value;
-const ellips = document.createElement('div');
-ellips.innerHTML = '<i class="fas fa-trash-alt"></i>';
-const task = new Task(checkbox, description,ellips);
+// export const task = new Storage();
 export class Events {
+    constructor(lists) {
+        this.lists = lists;
+    }
+
     static addList(task) {
       let taskslist = document.querySelector('.added-list');
-      const inputItem = document.querySelector('.item');
-      inputItem.innerText = `
-          <ul class="task-items">
-          <li class="task-check">${task.checkbox}</li>
-          <li class="task-entry">${task.description}</li>
-          <li class="task-close">${task.ellips}</li>
-          </ul><hr>`;
+      let inputItem = document.querySelector('.item');
+      inputItem.innerHTML = '';
+        for (let i = 0; i < this.lists; i += 1) {
+        inputItem.innerHTML += `<div class='todo-div'>
+          <input type='checkbox' class='check' id="${i}">
+          <li class='todoListItem'>${this.lists[i].description}</li>
+          <div class="icons"
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+          <i class="fa-solid fa-trash-can" data-index=${i + 1}></i>
+          </div>
+          </div>
+          `;
       taskslist.innerHTML += inputItem;
-      console.log(taskslist)
     }
-  
-    static displayTasks() {
+  }
+    static displayTasks(task) {
       const tasks = Storage.getTasks();
-      tasks.forEach((task) => Events.addList(task));
+      tasks = Events.addList();
+      localStorage.setItem('lists', JSON.stringify(task));
     }
   
     static deleteTask(el) {
@@ -34,5 +39,5 @@ export class Events {
     static clearList() {
         document.querySelector('.item').value = '';
     }
-  }
-  document.addEventListener('DOMContentLoaded', Events.addList)
+}
+document.addEventListener('DOMContentLoaded', Events.addList)

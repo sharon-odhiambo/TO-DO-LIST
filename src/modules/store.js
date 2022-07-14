@@ -1,10 +1,10 @@
 /* eslint-disable max-classes-per-file */
 // Store Task Details
 export class Task {
-    constructor(checkbox, description, ellips) {
-      this.checkbox = checkbox;
+    constructor(description = 'item', lists) {
+      this.index = lists;
       this.description = description;
-      this.ellips = ellips;
+      this.completed = false;
     }
   }
 // local Storage
@@ -22,6 +22,7 @@ export class Storage {
     static addTask(task) {
       const tasks = Storage.getTasks();
       tasks.push(task);
+      console.log(tasks)
       localStorage.setItem('tasks', JSON.stringify(tasks));
     }
   
