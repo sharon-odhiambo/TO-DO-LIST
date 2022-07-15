@@ -7,8 +7,7 @@ import {Events} from './modules/ui.js';
 const addButton = document.querySelector('.fa-level-down-alt');
 const deleteButton = document.querySelector('.added-list');
 const input = document.querySelector('.item').value;
-console.log(deleteButton)
-window.addEventListener('load', Events.displayTasks);
+window.addEventListener('load', Events.displayTasks());
 addButton.addEventListener('click', (e) => {
   e.preventDefault();
   Events.addList();
@@ -19,4 +18,5 @@ deleteButton.addEventListener('click', (e) => {
  const listIndex = +clicked.dataset.index;
   Store.removeTasks(listIndex);
   Events.displayTasks();
+  location.reload();
 });

@@ -8,14 +8,15 @@ export class Events {
 
   static displayList = (task) => {
     const list = document.querySelector('.added-list');
-    const addedtasks = document.createElement('ul');
+    const addedtasks = document.createElement('div');
     addedtasks.innerHTML = `
-      <input type='checkbox' class='check' id="${task.index}">
-      <li class='todoListItem'>${task.description}</li>
-      <div class="icons">
-      <i class="fa-solid fa-ellipsis-vertical"></i>
+      <ul class="list-item">
+      <li><input type='checkbox' class="check" id="${task.index}"></li>
+      <li class="task-entry">${task.description}</li>
+      <li class="icons">
       <i class="fa-solid fa-trash-can" data-index="${task.index}"></i>
-      </div>`;
+      </li>
+      </ul>`;
     list.appendChild(addedtasks);
 }
 
@@ -25,15 +26,19 @@ export class Events {
     const list = new Task(Store.getTasks().length, inpuItem, false);
     Store.addTask(list);
     this.displayTasks();
+    location.reload();
   }
-
-  // static deleteTask = (el) => {
-  //   if (el.classList.contains('.fa-solid fa-trash-can')) {
-  //     el.parentElement.parentElement.remove();
-  //   }
 
   static clearFields = () => {
-    document.querySelector('.item').value = ''
+    document.querySelector('.item').value = null;
   }
 }
+const checkboxes = document.querySelectorAll('input[type=checkbox]');
+console.log(checkboxes)
+checkboxes.forEach((checkbox) => {
+  checkbox.addEventListener('change', (event) => {
+    const inputField = event.target.parentNode;
+    inputField.classList.toggle('line-through');
+  });
+});
 

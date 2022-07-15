@@ -28,7 +28,7 @@ body {
   display: flex;
   justify-content: space-between;
   list-style: none;
-  margin: 0;
+  margin-left: 0;
 }
 
 .clear {
@@ -53,7 +53,7 @@ hr {
 .fa-rotate,
 .fa-fa-square-check,
 .fa-level-down-alt,
-.fa-ellipsis-vertical {
+.fa-trash-can {
   cursor: pointer;
 }
 
@@ -66,5 +66,10 @@ hr {
 }
 
 .task-entry {
-  margin-right: 80%;
+  display: flex;
+  margin-right: 70%;
+}
+
+.check {
+  margin-right: 100%;
 }
