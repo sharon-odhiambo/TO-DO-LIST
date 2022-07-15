@@ -1,19 +1,22 @@
   // Add Tasks to List and Storage
 // Add/Remove Added Books
 import './style.css';
-import { task, Task, Store } from './modules/store.js';
+import { Store, Task } from './modules/store.js';
 import {Events} from './modules/ui.js';
 // Add EventListening
 const addButton = document.querySelector('.fa-level-down-alt');
-const deleteButton = document.querySelectorAll('.fa-trash-can');
+const deleteButton = document.querySelector('.added-list');
+const input = document.querySelector('.item').value;
 console.log(deleteButton)
+window.addEventListener('load', Events.displayTasks);
 addButton.addEventListener('click', (e) => {
   e.preventDefault();
-  Events.addList(task);
-  Store.addTask(task);
-  Events.clearFields();
+  Events.addList();
 });
 deleteButton.addEventListener('click', (e) => {
-  Events.deleteTask(e.target);
-  Store.removeTasks(e.target.parentElement.previousElementSibling.innerHTML);
+  const clicked = e.target.closest('.fa-trash-can');
+  if(!clicked) return;
+ const listIndex = +clicked.dataset.index;
+  Store.removeTasks(listIndex);
+  Events.displayTasks();
 });

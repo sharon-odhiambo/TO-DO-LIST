@@ -1,16 +1,14 @@
 /* eslint-disable max-classes-per-file */
-export class Task {
-    constructor(index, description, completed) {
-      this.index = index;
-      this.description = description;
-      this.completed = false;
-    }
+ // local Storage
+ export class Task {
+  constructor(index, description, completed ) {
+    this.index = index;
+    this.description = description;
+    this.completed = completed;
   }
-  export const task = new Task();
-  
-  // local Storage
-  export class Store {
-    static getTasks() {
+ }
+export class Store {
+    static getTasks = () => {
       let tasks;
       if (localStorage.getItem('tasks') === null) {
         tasks = [];
@@ -20,16 +18,16 @@ export class Task {
       return tasks;
     }
   
-    static addTask(task) {
+    static addTask = (task) => {
       const tasks = Store.getTasks();
       tasks.push(task);
       localStorage.setItem('tasks', JSON.stringify(tasks));
     }
   
-    static removeTasks(description) {
+    static removeTasks = (ind) => {
       const tasks = Store.getTasks();
       tasks.forEach((task, index) => {
-        if (task.description === description) {
+        if (task.index === ind) {
           tasks.splice(index, 1);
         }
       });

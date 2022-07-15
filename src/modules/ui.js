@@ -1,34 +1,39 @@
 // Display Books
-import { Store, task, Task } from './store.js';
+import { Store, Task} from './store.js';
 export class Events {
-  static displayTasks() {
+  static displayTasks = () => {
     const tasks = Store.getTasks();
-    tasks.forEach((task) => Events.addList(task));
+    tasks.forEach((task) => this.displayList(task));
   }
 
-  static addList(task) {
+  static displayList = (task) => {
     const list = document.querySelector('.added-list');
-    const addedtasks = document.createElement('div');
+    const addedtasks = document.createElement('ul');
     addedtasks.innerHTML = `
-      <ul class='list-item'>
-      <li><input type='checkbox' class='check' id="i"></li>
+      <input type='checkbox' class='check' id="${task.index}">
       <li class='todoListItem'>${task.description}</li>
-      <li class="icons">
+      <div class="icons">
       <i class="fa-solid fa-ellipsis-vertical"></i>
-      <i class="fa-solid fa-trash-can"></i>
-      </li>
-      </ul>`;
+      <i class="fa-solid fa-trash-can" data-index="${task.index}"></i>
+      </div>`;
     list.appendChild(addedtasks);
 }
-  static deleteTask(el) {
-    if (el.classList.contains('.fa-trash-can')) {
-      el.parentElement.parentElement.remove();
-    }
+
+  static addList = () => {
+    const inpuItem = document.querySelector('.item').value;
+    if (!inpuItem) return; 
+    const list = new Task(Store.getTasks().length, inpuItem, false);
+    Store.addTask(list);
+    this.displayTasks();
   }
 
-  static clearFields() {
+  // static deleteTask = (el) => {
+  //   if (el.classList.contains('.fa-solid fa-trash-can')) {
+  //     el.parentElement.parentElement.remove();
+  //   }
+
+  static clearFields = () => {
     document.querySelector('.item').value = ''
   }
 }
-document.addEventListener('DOMContentLoaded', Events.displayTasks);
 
