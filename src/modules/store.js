@@ -1,12 +1,12 @@
 /* eslint-disable max-classes-per-file */
- // local Storage
- export class Task {
-  constructor(index, description, completed ) {
+// local Storage
+export class Task {
+  constructor(index, description, completed) {
     this.index = index;
     this.description = description;
     this.completed = completed;
   }
- }
+}
 export class Store {
     static getTasks = () => {
       let tasks;
@@ -17,13 +17,13 @@ export class Store {
       }
       return tasks;
     }
-  
+
     static addTask = (task) => {
       const tasks = Store.getTasks();
       tasks.push(task);
       localStorage.setItem('tasks', JSON.stringify(tasks));
     }
-  
+
     static removeTasks = (ind) => {
       const tasks = Store.getTasks();
       tasks.forEach((task, index) => {
@@ -33,5 +33,5 @@ export class Store {
       });
       localStorage.setItem('tasks', JSON.stringify(tasks));
     }
-  }
-  /* eslint-enable max-classes-per-file */
+}
+/* eslint-enable max-classes-per-file */

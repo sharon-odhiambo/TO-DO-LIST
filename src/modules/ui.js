@@ -1,6 +1,9 @@
+/* eslint-disable no-restricted-globals */
+/* eslint-disable import/extensions */
 // Display Books
-import { Store, Task} from './store.js';
-export class Events {
+import { Store, Task } from './store.js';
+
+export default class Events {
   static displayTasks = () => {
     const tasks = Store.getTasks();
     tasks.forEach((task) => this.displayList(task));
@@ -18,11 +21,11 @@ export class Events {
       </li>
       </ul>`;
     list.appendChild(addedtasks);
-}
+  }
 
   static addList = () => {
     const inpuItem = document.querySelector('.item').value;
-    if (!inpuItem) return; 
+    if (!inpuItem) return;
     const list = new Task(Store.getTasks().length, inpuItem, false);
     Store.addTask(list);
     this.displayTasks();
@@ -34,11 +37,11 @@ export class Events {
   }
 }
 const checkboxes = document.querySelectorAll('input[type=checkbox]');
-console.log(checkboxes)
 checkboxes.forEach((checkbox) => {
   checkbox.addEventListener('change', (event) => {
     const inputField = event.target.parentNode;
     inputField.classList.toggle('line-through');
   });
 });
-
+/* eslint-enable import/extensions */
+/* eslint-enable no-restricted-globals */
