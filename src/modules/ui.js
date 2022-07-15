@@ -1,33 +1,34 @@
 import { forEach } from 'lodash';
-import {Storage} from './store.js';
+import {Store} from './store.js';
 // Display Added Tasks
 // export const task = new Storage();
+// Display Books
 export class Events {
-    constructor(lists) {
+    constructor() {
         this.lists = lists;
     }
 
+    static displayTasks(task) {
+        const tasks = Storage.getTasks();
+        tasks.forEach((task) => Events.addList(task));
+      }
+
     static addList(task) {
       let taskslist = document.querySelector('.added-list');
-      let inputItem = document.querySelector('.item');
-      inputItem.innerHTML = '';
-        for (let i = 0; i < this.lists; i += 1) {
-        inputItem.innerHTML += `<div class='todo-div'>
-          <input type='checkbox' class='check' id="${i}">
-          <li class='todoListItem'>${this.lists[i].description}</li>
+      const tasks = Store.getTasks();
+      tasks.forEach(task => {
+        taskslist.innerHTML = `<div class='todo-div'>
+          <input type='checkbox' class='check' id="1">
+          <li class='todoListItem'>gggg</li>
           <div class="icons"
           <i class="fa-solid fa-ellipsis-vertical"></i>
-          <i class="fa-solid fa-trash-can" data-index=${i + 1}></i>
+          <i class="fa-solid fa-trash-can" data-index="1"></i>
           </div>
           </div>
           `;
-      taskslist.innerHTML += inputItem;
-    }
-  }
-    static displayTasks(task) {
-      const tasks = Storage.getTasks();
-      tasks = Events.addList();
-      localStorage.setItem('lists', JSON.stringify(task));
+      })
+      console.log(task)
+    //   taskslist.appendChild(inputItem.innerHTML);
     }
   
     static deleteTask(el) {

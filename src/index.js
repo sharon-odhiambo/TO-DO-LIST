@@ -1,6 +1,6 @@
 /* eslint-disable max-classes-per-file */
 import './style.css';
-import {Task, Storage} from './modules/store.js';
+import {Task, Store} from './modules/store.js';
 import {Events} from './modules/ui.js';
 // Add EventListening to Task List
 const task = new Task();
@@ -9,7 +9,7 @@ const deleteButton = document.querySelector('.fa-trash-alt');
 addButton.addEventListener('click', (e) => {
   e.preventDefault();
   // Add Tasks to List and Storage
-  Storage.addTask(task);
+  Store.addTask(task);
   Events.addList(task);
 });
 // // Remove task from list and storage
