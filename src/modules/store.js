@@ -1,7 +1,7 @@
 /* eslint-disable max-classes-per-file */
 export class Task {
     constructor(index, description, list) {
-      this.index = 0;
+      this.index = index;
       this.description = description;
       this.completed = false;
     }
