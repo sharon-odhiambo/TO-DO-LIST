@@ -23,7 +23,7 @@ body {
   border: none;
 }
 
-.task-items {
+.list-item {
   padding: 15px;
   display: flex;
   justify-content: space-between;

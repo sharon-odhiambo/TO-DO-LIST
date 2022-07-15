@@ -1,11 +1,12 @@
 /* eslint-disable max-classes-per-file */
 export class Task {
-    constructor(index, description, list) {
+    constructor(index, description, completed) {
       this.index = index;
       this.description = description;
       this.completed = false;
     }
   }
+  export const task = new Task();
   
   // local Storage
   export class Store {

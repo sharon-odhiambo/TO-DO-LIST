@@ -1,7 +1,6 @@
 // Display Books
-import { Store } from './store.js';
-
-export default class Events {
+import { Store, task, Task } from './store.js';
+export class Events {
   static displayTasks() {
     const tasks = Store.getTasks();
     tasks.forEach((task) => Events.addList(task));
@@ -11,18 +10,18 @@ export default class Events {
     const list = document.querySelector('.added-list');
     const addedtasks = document.createElement('div');
     addedtasks.innerHTML = `
-        <table class="cols">
-        <td class="cols1">"${book.title}"</td>
-        <td class="cols2">by ${book.author}</td>
-        <td class="cols3">${book.isbn}</td>
-        <td class="cols4"><button type="submit" class="delete">Remove</button></td>
-        </table>
-        `;
+      <ul class='list-item'>
+      <li><input type='checkbox' class='check' id="i"></li>
+      <li class='todoListItem'>${task.description}</li>
+      <li class="icons">
+      <i class="fa-solid fa-ellipsis-vertical"></i>
+      <i class="fa-solid fa-trash-can"></i>
+      </li>
+      </ul>`;
     list.appendChild(addedtasks);
-  }
-
+}
   static deleteTask(el) {
-    if (el.classList.contains('task-close')) {
+    if (el.classList.contains('.fa-trash-can')) {
       el.parentElement.parentElement.remove();
     }
   }
@@ -32,3 +31,4 @@ export default class Events {
   }
 }
 document.addEventListener('DOMContentLoaded', Events.displayTasks);
+
