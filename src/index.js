@@ -24,10 +24,10 @@ list.addEventListener('click', (e) => {
   const clicked = e.target.closest('.task-entry');
   if (!clicked) return;
   clicked.addEventListener('keyup', () => {
-  const index = +clicked.dataset.index;
-  const description = clicked.value.trim();
-  Events.editInput(index, description);
-  })
-})
+    const index = +clicked.dataset.index;
+    const description = clicked.value.trim();
+    Events.editInput(index, description);
+  });
+});
 /* eslint-enable no-restricted-globals */
 /* eslint-enable import/extensions */

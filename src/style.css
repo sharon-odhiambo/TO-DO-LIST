@@ -1,5 +1,5 @@
 body {
-  background-color: #d3d3d3;
+  background-color: black;
 }
 
 .fa-sync {
@@ -17,6 +17,10 @@ body {
   padding: 15px;
   display: flex;
   justify-content: space-between;
+}
+
+.heading {
+  font-weight: bold;
 }
 
 .item {
@@ -38,6 +42,7 @@ body {
   color: lightgray;
   background-color: darkgray;
   padding: 15px;
+  font-weight: bold;
 }
 
 .clear a {
@@ -68,6 +73,7 @@ hr {
 .task-entry {
   display: flex;
   margin-right: 70%;
+  border: none;
 }
 
 .check {

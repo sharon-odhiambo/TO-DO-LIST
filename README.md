@@ -40,6 +40,7 @@ npm run dev
 
 - GitHub: [@sharon-odhiambo](https://github.com/sharon-odhiambo)
 - Twitter: [@SharonVictor16](https://twitter.com/sharonvictor16)
+- LinkedIn: [Sharon Odhiambo](https://www.linkedin.com/in/sharon-odhiambo-4333a0163/)
 
 ## 🤝 Contributing
 

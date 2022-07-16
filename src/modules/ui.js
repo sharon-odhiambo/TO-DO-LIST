@@ -9,8 +9,8 @@ export default class Events {
     list.innerHTML = '';
     const tasks = Store.getTasks();
     tasks.forEach((task) => {
-    const addedtasks = document.createElement('div');
-    addedtasks.innerHTML = `
+      const addedtasks = document.createElement('div');
+      addedtasks.innerHTML = `
       <ul class="list-item">
       <li><input type='checkbox' class="check" id="${task.index}"></li>
       <li><input type="text" class="task-entry" data-index="${task.index}" value="${task.description}"></li>
@@ -18,7 +18,7 @@ export default class Events {
       <i class="fa-solid fa-trash-can" data-index="${task.index}"></i>
       </li>
       </ul>`;
-    list.appendChild(addedtasks);
+      list.appendChild(addedtasks);
     });
   };
 
@@ -35,10 +35,10 @@ export default class Events {
   }
 
  static editInput = (index, description) => {
-    const tasks = Store.getTasks();
-    const task = tasks.find((task) => task.index === index);
-    task.description = description;
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+   const tasks = Store.getTasks();
+   const task = tasks.find((task) => task.index === index);
+   task.description = description;
+   localStorage.setItem('tasks', JSON.stringify(tasks));
  }
 }
 /* eslint-enable import/extensions */
