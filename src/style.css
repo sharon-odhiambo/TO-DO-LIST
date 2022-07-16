@@ -1,5 +1,5 @@
 body {
-  background-color: #d3d3d3;
+  background-color: black;
 }
 
 .fa-sync {
@@ -19,16 +19,20 @@ body {
   justify-content: space-between;
 }
 
+.heading {
+  font-weight: bold;
+}
+
 .item {
   border: none;
 }
 
-.task-items {
+.list-item {
   padding: 15px;
   display: flex;
   justify-content: space-between;
   list-style: none;
-  margin: 0;
+  margin-left: 0;
 }
 
 .clear {
@@ -38,6 +42,7 @@ body {
   color: lightgray;
   background-color: darkgray;
   padding: 15px;
+  font-weight: bold;
 }
 
 .clear a {
@@ -53,7 +58,7 @@ hr {
 .fa-rotate,
 .fa-fa-square-check,
 .fa-level-down-alt,
-.fa-ellipsis-vertical {
+.fa-trash-can {
   cursor: pointer;
 }
 
@@ -66,5 +71,11 @@ hr {
 }
 
 .task-entry {
-  margin-right: 80%;
+  display: flex;
+  margin-right: 70%;
+  border: none;
+}
+
+.check {
+  margin-right: 100%;
 }

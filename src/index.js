@@ -1,33 +1,34 @@
+/* eslint-disable no-restricted-globals */
+/* eslint-disable import/extensions */
+// Add Tasks to List and Storage
+// Add/Remove Added Books
 import './style.css';
-
-const Tasks = [
-  {
-    index: 1,
-    description: 'Task One',
-    completed: false,
-  },
-  {
-    index: 2,
-    description: 'Task Two',
-    completed: false,
-  },
-  {
-    index: 3,
-    description: 'Task Three',
-    completed: false,
-  },
-];
-function createTasks() {
-  const taskList = document.querySelector('.added-list');
-  for (let i = 0; i < Tasks.length; i += 1) {
-    const list = `
-    <ul class=" task-items">
-    <li><i class="far fa-square"></i></li>
-    <li class="task-entry">${Tasks[i].description}</li>
-    <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
-    </ul><hr>`;
-
-    taskList.innerHTML += list;
-  }
-}
-document.addEventListener('DOMContentLoaded', createTasks);
+import { Store } from './modules/store.js';
+import Events from './modules/ui.js';
+// Add EventListening
+const addButton = document.querySelector('#form');
+const list = document.querySelector('.added-list');
+window.addEventListener('load', Events.displayTasks());
+addButton.addEventListener('submit', (e) => {
+  e.preventDefault();
+  Events.addList();
+  Events.clearFields();
+});
+list.addEventListener('click', (e) => {
+  const clicked = e.target.closest('.fa-trash-can');
+  if (!clicked) return;
+  const listIndex = +clicked.dataset.index;
+  Store.removeTasks(listIndex);
+  Events.displayTasks();
+});
+list.addEventListener('click', (e) => {
+  const clicked = e.target.closest('.task-entry');
+  if (!clicked) return;
+  clicked.addEventListener('keyup', () => {
+    const index = +clicked.dataset.index;
+    const description = clicked.value.trim();
+    Events.editInput(index, description);
+  });
+});
+/* eslint-enable no-restricted-globals */
+/* eslint-enable import/extensions */

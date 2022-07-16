@@ -9,7 +9,11 @@
   None
   
  ### Prerequisites
-HTML
+HTML || CSS
+
+### Setup
+- HTML, CSS, JS linters
+- NodeJs Installed
 
 ### Getting Started
 To get a local copy for practice or as a template, follow these simple steps.
@@ -17,7 +21,18 @@ To get a local copy for practice or as a template, follow these simple steps.
 Access the live source on -https://github.com/sharon-odhiambo/TO-DO-LIST
 
 Copy the **https** or **SSH** address on the code
-Clone the repository using your editor   
+Clone the repository using your editor 
+
+### steps to run the project
+#### 1 - Install npm.
+```
+npm install
+```
+
+#### 2 - run the project 
+```
+npm run dev
+```
 
 ## Author
 
@@ -25,6 +40,7 @@ Clone the repository using your editor
 
 - GitHub: [@sharon-odhiambo](https://github.com/sharon-odhiambo)
 - Twitter: [@SharonVictor16](https://twitter.com/sharonvictor16)
+- LinkedIn: [Sharon Odhiambo](https://www.linkedin.com/in/sharon-odhiambo-4333a0163/)
 
 ## 🤝 Contributing
 
