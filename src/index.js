@@ -5,6 +5,7 @@
 import './style.css';
 import { Store } from './modules/store.js';
 import Events from './modules/ui.js';
+import { updateCompleted, clearCompleted } from './modules/mark.js';
 // Add EventListening
 const addButton = document.querySelector('#form');
 const list = document.querySelector('.added-list');
@@ -29,6 +30,17 @@ list.addEventListener('click', (e) => {
     const description = clicked.value.trim();
     Events.editInput(index, description);
   });
+});
+list.addEventListener('click', (e) => {
+  const clicked = e.target.closest('.check');
+  if (!clicked) return;
+  const index = +clicked.dataset.index;
+  updateCompleted(index);
+});
+const clearList = document.querySelector('#clear-text');
+clearList.addEventListener('click', () => {
+  clearCompleted();
+  Events.displayTasks();
 });
 /* eslint-enable no-restricted-globals */
 /* eslint-enable import/extensions */
