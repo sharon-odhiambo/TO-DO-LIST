@@ -6,20 +6,28 @@ import './style.css';
 import { Store } from './modules/store.js';
 import Events from './modules/ui.js';
 // Add EventListening
-const addButton = document.querySelector('.fa-level-down-alt');
-const deleteButton = document.querySelector('.added-list');
+const addButton = document.querySelector('#form');
+const list = document.querySelector('.added-list');
 window.addEventListener('load', Events.displayTasks());
-addButton.addEventListener('click', (e) => {
+addButton.addEventListener('submit', (e) => {
   e.preventDefault();
   Events.addList();
 });
-deleteButton.addEventListener('click', (e) => {
+list.addEventListener('click', (e) => {
   const clicked = e.target.closest('.fa-trash-can');
   if (!clicked) return;
   const listIndex = +clicked.dataset.index;
   Store.removeTasks(listIndex);
   Events.displayTasks();
-  location.reload();
 });
+list.addEventListener('click', (e) => {
+  const clicked = e.target.closest('.task-entry');
+  if (!clicked) return;
+  clicked.addEventListener('keyup', () => {
+  const index = +clicked.dataset.index;
+  const description = clicked.value.trim();
+  Events.editInput(index, description);
+  })
+})
 /* eslint-enable no-restricted-globals */
 /* eslint-enable import/extensions */
