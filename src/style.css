@@ -76,6 +76,11 @@ hr {
   border: none;
 }
 
+.task-entry[data-completed='true'] {
+  text-decoration: line-through;
+  opacity: 0.8;
+}
+
 .check {
   margin-right: 100%;
 }

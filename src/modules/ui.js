@@ -10,10 +10,11 @@ export default class Events {
     const tasks = Store.getTasks();
     tasks.forEach((task) => {
       const addedtasks = document.createElement('div');
+      const flag = task.completed ? 'checked' : '';
       addedtasks.innerHTML = `
       <ul class="list-item">
-      <li><input type='checkbox' class="check" id="${task.index}"></li>
-      <li><input type="text" class="task-entry" data-index="${task.index}" value="${task.description}"></li>
+      <li><input type='checkbox' class="check" id="${task.index}" data-index="${task.index}" ${flag}></li>
+      <li><input type="text" class="task-entry" data-index="${task.index}" data-completed="${task.completed}" value="${task.description}"></li>
       <li class="icons">
       <i class="fa-solid fa-trash-can" data-index="${task.index}"></i>
       </li>
