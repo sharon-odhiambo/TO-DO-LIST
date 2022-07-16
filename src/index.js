@@ -12,6 +12,7 @@ window.addEventListener('load', Events.displayTasks());
 addButton.addEventListener('submit', (e) => {
   e.preventDefault();
   Events.addList();
+  Events.clearFields();
 });
 list.addEventListener('click', (e) => {
   const clicked = e.target.closest('.fa-trash-can');
