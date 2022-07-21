@@ -26,6 +26,12 @@ export class Store {
         localStorage.setItem('tasks', JSON.stringify(tasks));
       }
 
+      static removeTask = (ind) => {
+        const tasks = Store.getTasks();
+        tasks.splice(ind, 1);
+        return tasks;
+      }
+
       static removeTasks = (ind) => {
         const tasks = Store.getTasks();
         tasks.forEach((task, index) => {
