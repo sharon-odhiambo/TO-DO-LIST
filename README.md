@@ -4,7 +4,7 @@
 ## Built With
 
 - Major languages 
-  HTML | Javascript
+  HTML | JavaScript
 - Frameworks
     Bootsrap | Jest
   
@@ -15,6 +15,9 @@ HTML || CSS
 - HTML, CSS, JS linters
 - NodeJs Installed
 
+
+### Live Demo
+[Link](https://sharon-odhiambo.github.io/sharon-odhiambo.github.io-TO-DO-LIST/dist/)
 ### Getting Started
 To get a local copy for practice or as a template, follow these simple steps.
 
