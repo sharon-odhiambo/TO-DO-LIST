@@ -1,43 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1658383575103" clover="3.2.0">
-  <project timestamp="1658383575104" name="All files">
-    <metrics statements="34" coveredstatements="15" conditionals="8" coveredconditionals="2" methods="8" coveredmethods="3" elements="50" coveredelements="20" complexity="0" loc="34" ncloc="34" packages="1" files="1" classes="1"/>
+<coverage generated="1658390907073" clover="3.2.0">
+  <project timestamp="1658390907074" name="All files">
+    <metrics statements="33" coveredstatements="18" conditionals="8" coveredconditionals="3" methods="8" coveredmethods="4" elements="49" coveredelements="25" complexity="0" loc="33" ncloc="33" packages="1" files="1" classes="1"/>
     <file name="functions.js" path="C:\Users\Majioni\Documents\GitHub\To-do List Testing\TO-DO-LIST\src\functions.js">
-      <metrics statements="34" coveredstatements="15" conditionals="8" coveredconditionals="2" methods="8" coveredmethods="3"/>
+      <metrics statements="33" coveredstatements="18" conditionals="8" coveredconditionals="3" methods="8" coveredmethods="4"/>
       <line num="7" count="0" type="stmt"/>
       <line num="8" count="0" type="stmt"/>
       <line num="9" count="0" type="stmt"/>
       <line num="13" count="1" type="stmt"/>
-      <line num="15" count="1" type="cond" truecount="1" falsecount="1"/>
-      <line num="16" count="1" type="stmt"/>
-      <line num="18" count="0" type="stmt"/>
-      <line num="20" count="1" type="stmt"/>
+      <line num="15" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="16" count="2" type="stmt"/>
+      <line num="18" count="1" type="stmt"/>
+      <line num="20" count="3" type="stmt"/>
       <line num="23" count="1" type="stmt"/>
       <line num="24" count="0" type="stmt"/>
       <line num="25" count="0" type="stmt"/>
       <line num="26" count="0" type="stmt"/>
       <line num="29" count="1" type="stmt"/>
-      <line num="30" count="0" type="stmt"/>
-      <line num="31" count="0" type="stmt"/>
+      <line num="30" count="1" type="stmt"/>
+      <line num="31" count="1" type="stmt"/>
       <line num="32" count="0" type="cond" truecount="0" falsecount="2"/>
       <line num="33" count="0" type="stmt"/>
-      <line num="36" count="0" type="stmt"/>
-      <line num="41" count="1" type="stmt"/>
-      <line num="48" count="1" type="stmt"/>
-      <line num="49" count="1" type="stmt"/>
-      <line num="50" count="1" type="stmt"/>
-      <line num="51" count="1" type="stmt"/>
-      <line num="52" count="1" type="stmt"/>
-      <line num="53" count="0" type="stmt"/>
-      <line num="54" count="0" type="cond" truecount="0" falsecount="2"/>
-      <line num="55" count="0" type="stmt"/>
-      <line num="63" count="0" type="stmt"/>
-      <line num="67" count="1" type="stmt"/>
-      <line num="68" count="2" type="stmt"/>
-      <line num="69" count="2" type="cond" truecount="1" falsecount="1"/>
-      <line num="70" count="0" type="stmt"/>
-      <line num="71" count="0" type="stmt"/>
-      <line num="72" count="0" type="stmt"/>
+      <line num="36" count="1" type="stmt"/>
+      <line num="42" count="1" type="stmt"/>
+      <line num="43" count="2" type="stmt"/>
+      <line num="44" count="2" type="stmt"/>
+      <line num="45" count="2" type="stmt"/>
+      <line num="46" count="2" type="stmt"/>
+      <line num="47" count="0" type="stmt"/>
+      <line num="48" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="49" count="0" type="stmt"/>
+      <line num="57" count="0" type="stmt"/>
+      <line num="61" count="1" type="stmt"/>
+      <line num="62" count="1" type="stmt"/>
+      <line num="63" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="64" count="0" type="stmt"/>
+      <line num="65" count="0" type="stmt"/>
+      <line num="66" count="0" type="stmt"/>
     </file>
   </project>
 </coverage>

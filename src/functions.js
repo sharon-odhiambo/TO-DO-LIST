@@ -38,12 +38,6 @@ export class Store {
 }
 
 // Display Books
-document.body.innerHTML = `
-    <div id="to-dos" class="added-list">
-      <div class="item" id="remove"></div>
-    </div>
-`;
-
 export class Events {
   static displayTasks = () => {
     const list = document.querySelector('.added-list');
@@ -69,7 +63,7 @@ export class Events {
     if (!inpuItem) return;
     const list = new Task(Store.getTasks().length, inpuItem, false);
     Store.addTask(list);
-    this.displayTasks();
+    Events.displayTasks();
   }
 }
 /* eslint-enable import/extensions */
