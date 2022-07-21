@@ -15,8 +15,7 @@ const lists = [
 ]
 describe('add/remove functions', () => {
   test('adds an element to the list', () => {
-    Events.addList(lists);
-    Events.displayTasks(lists);
+    Store.addTask();
     const list = document.querySelector('.added-list').childNodes;
     expect(list.length).toBe(2);
   });

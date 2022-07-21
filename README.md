@@ -1,5 +1,5 @@
 # To-Do List
--This is an Awesome Booklist project that we did with my coding partner. The project allows the user to add or remove a book from the list.
+-This project displays a to-do-list built using Webpack and JavaScript modules. The list allows the user to add or remove tasks from the display list and update the same in the local storage. It also allows the user to check using a checkbox icon and clear the checked items.
 
 ## Built With
 
