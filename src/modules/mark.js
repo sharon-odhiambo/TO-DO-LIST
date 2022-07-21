@@ -1,5 +1,6 @@
 /* eslint-disable import/extensions */
-/* eslint-disable no-use-before-define */
+/* eslint-disable no-unused-vars */
+
 import { Store } from './store.js';
 import Events from './ui.js';
 
@@ -22,3 +23,4 @@ const clearCompleted = () => {
 export { updateCompleted, clearCompleted };
 
 /* eslint-enable import/extensions */
+/* eslint-disable no-unused-vars */
