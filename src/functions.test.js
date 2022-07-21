@@ -5,24 +5,24 @@ document.body.innerHTML = `
       <div class="item" id="remove"></div>
     </div>
 `;
+
 const lists = [
-    {
-        description: 'complete my tasks',
-    },
-    {
-        description: 'join morning session',
-    }
-]
+  {
+    description: 'complete my tasks',
+  },
+];
+
+const list = document.querySelector('.added-list').childNodes;
+
 describe('add/remove functions', () => {
   test('adds an element to the list', () => {
-    Store.addTask();
-    const list = document.querySelector('.added-list').childNodes;
-    expect(list.length).toBe(2);
-  });
-  test('removes an element from the list', () => {
-    const list = document.querySelector('.added-list').childNodes;
-    Store.removeTasks(lists);
+    Store.addTask(lists);
     Events.displayTasks();
-    expect(list.length).toBe(0);
+    expect(list.length).toBe(1);
+  });
+
+  test('Removes item from list', () => {
+    const store = Store.removeTask();
+    expect(store.length).toBe(0);
   });
 });
