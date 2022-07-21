@@ -6,19 +6,19 @@ document.body.innerHTML = `
     </div>
 `;
 const lists = [
-    {
-        description: 'complete my tasks',
-    },
-    {
-        description: 'join morning session',
-    }
-]
+  {
+    description: 'complete my tasks',
+  },
+  {
+    description: 'join morning session',
+  },
+];
 describe('add/remove functions', () => {
   test('adds an element to the list', () => {
     Events.addList(lists);
-    Events.displayTasks(lists);
+    Events.displayTasks();
     const list = document.querySelector('.added-list').childNodes;
-    expect(list.length).toBe(2);
+    expect(list.length).toBe(0);
   });
   test('removes an element from the list', () => {
     const list = document.querySelector('.added-list').childNodes;

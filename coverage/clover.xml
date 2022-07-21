@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1658390907073" clover="3.2.0">
-  <project timestamp="1658390907074" name="All files">
+<coverage generated="1658395729565" clover="3.2.0">
+  <project timestamp="1658395729566" name="All files">
     <metrics statements="33" coveredstatements="18" conditionals="8" coveredconditionals="3" methods="8" coveredmethods="4" elements="49" coveredelements="25" complexity="0" loc="33" ncloc="33" packages="1" files="1" classes="1"/>
-    <file name="functions.js" path="C:\Users\Majioni\Documents\GitHub\To-do List Testing\TO-DO-LIST\src\functions.js">
+    <file name="functions.js" path="C:\Users\aquinas\Microverse Program\Module 2\Week 3\TO-DO-LIST\src\functions.js">
       <metrics statements="33" coveredstatements="18" conditionals="8" coveredconditionals="3" methods="8" coveredmethods="4"/>
       <line num="7" count="0" type="stmt"/>
       <line num="8" count="0" type="stmt"/>
