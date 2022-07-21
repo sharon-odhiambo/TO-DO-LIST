@@ -36,6 +36,7 @@ list.addEventListener('click', (e) => {
   if (!clicked) return;
   const index = +clicked.dataset.index;
   updateCompleted(index);
+  Events.displayTasks();
 });
 const clearList = document.querySelector('#clear-text');
 clearList.addEventListener('click', () => {

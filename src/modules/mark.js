@@ -1,5 +1,7 @@
 /* eslint-disable import/extensions */
+/* eslint-disable no-use-before-define */
 import { Store } from './store.js';
+import Events from './ui.js';
 
 const updateCompleted = (index) => {
   const tasks = Store.getTasks();
@@ -11,8 +13,9 @@ const clearCompleted = () => {
   const tasks = Store.getTasks();
   tasks.forEach((task, index) => {
     if (task.completed === true) {
-      tasks.splice(index, 1);
+      tasks.splice(index);
     }
+    Events.displayTasks();
   });
   localStorage.setItem('tasks', JSON.stringify(tasks));
 };
