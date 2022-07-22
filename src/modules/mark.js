@@ -14,7 +14,7 @@ const clearCompleted = () => {
   const tasks = Store.getTasks();
   tasks.forEach((task, index) => {
     if (task.completed === true) {
-      tasks.splice(index);
+      tasks.splice(index, 1);
     }
     Events.displayTasks();
   });
