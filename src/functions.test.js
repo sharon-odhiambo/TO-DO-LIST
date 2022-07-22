@@ -1,28 +1,38 @@
-// import { Store, Events } from './functions';
+import {
+  Store, Events, clearCompleted, Task,
+} from './functions';
 
-// document.body.innerHTML = `
-//     <div id="to-dos" class="added-list">
-//       <div class="item" id="remove"></div>
-//     </div>
-// `;
+document.body.innerHTML = `
+    <div id="to-dos" class="added-list">
+      <div class="item" id="remove"></div>
+    </div>
+`;
 
 // const lists = [
 //   {
 //     description: 'complete my tasks',
 //   },
 // ];
+const lists = new Task(1, 'Baba ndiye orezo', true);
+const list1 = new Task(1, 'Baba ndiye orezo', true);
+const list = document.querySelector('.added-list').childNodes;
 
-// const list = document.querySelector('.added-list').childNodes;
+describe('add/remove functions', () => {
+  test('adds an element to the list', () => {
+    Store.addTask(lists);
+    Store.addTask(list1);
+    Events.displayTasks();
+    expect(list.length).toBe(2);
+  });
 
-// describe('add/remove functions', () => {
-//   test('adds an element to the list', () => {
-//     Store.addTask(lists);
-//     Events.displayTasks();
-//     expect(list.length).toBe(1);
-//   });
+  //   test('Removes item from list', () => {
+  //     const store = Store.removeTask();
+  //     expect(store.length).toBe(1);
+  //   });
 
-//   test('Removes item from list', () => {
-//     const store = Store.removeTask();
-//     expect(store.length).toBe(0);
-//   });
-// });
+  test('clears the list item', () => {
+    const store = Store.getTasks();
+    clearCompleted();
+    expect(store.length).toEqual(0);
+  });
+});

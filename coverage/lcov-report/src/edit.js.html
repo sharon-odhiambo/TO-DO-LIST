@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">15.38% </span>
+                <span class="strong">61.53% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/13</span>
+                <span class='fraction'>8/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">16.66% </span>
+                <span class="strong">63.63% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/12</span>
+                <span class='fraction'>7/11</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -87,27 +87,25 @@
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
 <a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L25'></a><a href='#L25'>25</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -118,24 +116,23 @@
 &nbsp;
 import { Store } from './modules/store.js';
 import Events from './modules/ui.js';
+import { Task } from './functions';
 &nbsp;
-const updateCompleted = <span class="fstat-no" title="function not covered" >(i</span>ndex) =&gt; {
+const task = new Task();
+&nbsp;
+const updateCompleted = (index) =&gt; {
+  const tasks = Store.getTasks();
+  const task = tasks.find((task) =&gt; task.index === index);
+  task.completed = !task.completed;
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+};
+const editInput = <span class="fstat-no" title="function not covered" >(i</span>ndex, description) =&gt; {
   const tasks = <span class="cstat-no" title="statement not covered" >Store.getTasks();</span>
   const task = <span class="cstat-no" title="statement not covered" >tasks.find(<span class="fstat-no" title="function not covered" >(t</span>ask) =&gt; <span class="cstat-no" title="statement not covered" >task.index === index)</span>;</span>
-<span class="cstat-no" title="statement not covered" >  task.completed = !task.completed;</span>
+<span class="cstat-no" title="statement not covered" >  task.description = description;</span>
 <span class="cstat-no" title="statement not covered" >  localStorage.setItem('tasks', JSON.stringify(tasks));</span>
 };
-const clearCompleted = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
-  const tasks = <span class="cstat-no" title="statement not covered" >Store.getTasks();</span>
-<span class="cstat-no" title="statement not covered" >  tasks.forEach(<span class="fstat-no" title="function not covered" >(t</span>ask, index) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (task.completed === true) {</span>
-<span class="cstat-no" title="statement not covered" >      tasks.splice(index);</span>
-    }
-<span class="cstat-no" title="statement not covered" >    Events.displayTasks();</span>
-  });
-<span class="cstat-no" title="statement not covered" >  localStorage.setItem('tasks', JSON.stringify(tasks));</span>
-};
-export { updateCompleted, clearCompleted };
+export { updateCompleted, editInput };
 &nbsp;
 /* eslint-enable import/extensions */
 /* eslint-disable no-unused-vars */</pre></td></tr></table></pre>
@@ -145,7 +142,7 @@ export { updateCompleted, clearCompleted };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-07-21T15:46:41.009Z
+                at 2022-07-22T11:20:43.948Z
             </div>
         <script src="../prettify.js"></script>
         <script>
