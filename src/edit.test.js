@@ -1,8 +1,10 @@
-import { updateCompleted } from './edit';
+import { updateCompleted, clearCompleted } from './edit';
 import { Task, Store } from './functions';
 
-const tasks = Store.getTasks();
 let task = new Task(1, 'Baba ndiye orezo');
+task.completed = true;
+const tasks = Store.getTasks();
+
 tasks.push(task);
 
 document.body.innerHTML = `
@@ -27,8 +29,14 @@ describe('Edit Update and clear from list', () => {
     expect(task.description).not.toEqual(list);
   });
 
-  test('updates the status of the list item', () => {
-    updateCompleted(1);
-    expect(task.completed).toEqual(true);
+  // test('updates the status of the list item', () => {
+  //   const tasks = Store.getTasks();
+  //   updateCompleted(1);
+  //   expect(tasks).toEqual(true);
+  // });
+
+  test('clears the list item', () => {
+    const tasks = Store.getTasks();
+    expect(clearCompleted(tasks).length).toBe(0);
   });
 });

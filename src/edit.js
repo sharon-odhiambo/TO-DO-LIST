@@ -19,7 +19,13 @@ const editInput = (index, description) => {
   task.description = description;
   localStorage.setItem('tasks', JSON.stringify(tasks));
 };
-export { updateCompleted, editInput };
+
+const clearCompleted = (tasks) => {
+  tasks = tasks.filter((t) => t.completed !== true);
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+  return tasks;
+};
+export { updateCompleted, editInput, clearCompleted };
 
 /* eslint-enable import/extensions */
 /* eslint-disable no-unused-vars */

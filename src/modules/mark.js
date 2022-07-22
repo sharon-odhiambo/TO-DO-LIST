@@ -10,14 +10,8 @@ const updateCompleted = (index) => {
   task.completed = !task.completed;
   localStorage.setItem('tasks', JSON.stringify(tasks));
 };
-const clearCompleted = () => {
-  const tasks = Store.getTasks();
-  tasks.forEach((task, index) => {
-    if (task.completed === true) {
-      tasks.splice(index, 1);
-    }
-    Events.displayTasks();
-  });
+const clearCompleted = (tasks) => {
+  tasks = tasks.filter((t) => t.completed !== true);
   localStorage.setItem('tasks', JSON.stringify(tasks));
 };
 export { updateCompleted, clearCompleted };

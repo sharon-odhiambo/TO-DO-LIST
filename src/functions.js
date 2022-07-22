@@ -72,16 +72,6 @@ export class Events {
     Events.displayTasks();
   }
 }
-export const clearCompleted = () => {
-  const tasks = Store.getTasks();
-  tasks.forEach((task, index) => {
-    if (task.completed === true) {
-      tasks.splice(index);
-    }
-    Events.displayTasks();
-  });
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-};
 
 /* eslint-enable import/extensions */
 /* eslint-enable no-restricted-globals */

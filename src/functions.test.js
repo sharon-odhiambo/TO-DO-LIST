@@ -1,5 +1,5 @@
 import {
-  Store, Events, clearCompleted, Task,
+  Store, Events, Task,
 } from './functions';
 
 document.body.innerHTML = `
@@ -8,11 +8,6 @@ document.body.innerHTML = `
     </div>
 `;
 
-// const lists = [
-//   {
-//     description: 'complete my tasks',
-//   },
-// ];
 const lists = new Task(1, 'Baba ndiye orezo', true);
 const list1 = new Task(1, 'Baba ndiye orezo', true);
 const list = document.querySelector('.added-list').childNodes;
@@ -25,14 +20,8 @@ describe('add/remove functions', () => {
     expect(list.length).toBe(2);
   });
 
-  //   test('Removes item from list', () => {
-  //     const store = Store.removeTask();
-  //     expect(store.length).toBe(1);
-  //   });
-
-  test('clears the list item', () => {
-    const store = Store.getTasks();
-    clearCompleted();
-    expect(store.length).toEqual(0);
+  test('Removes item from list', () => {
+    const store = Store.removeTask();
+    expect(store.length).toBe(1);
   });
 });
