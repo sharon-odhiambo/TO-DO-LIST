@@ -40,7 +40,8 @@ list.addEventListener('click', (e) => {
 });
 const clearList = document.querySelector('#clear-text');
 clearList.addEventListener('click', () => {
-  clearCompleted();
+  const tasks = Store.getTasks();
+  clearCompleted(tasks);
   Events.displayTasks();
 });
 /* eslint-enable no-restricted-globals */

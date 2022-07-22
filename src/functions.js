@@ -3,10 +3,10 @@
 /* eslint-disable import/extensions */
 // local Storage
 export class Task {
-  constructor(index, description, completed) {
+  constructor(index, description) {
     this.index = index;
     this.description = description;
-    this.completed = completed;
+    this.completed = false;
   }
 }
 export class Store {
@@ -72,6 +72,7 @@ export class Events {
     Events.displayTasks();
   }
 }
+
 /* eslint-enable import/extensions */
 /* eslint-enable no-restricted-globals */
 /* eslint-enable max-classes-per-file */
