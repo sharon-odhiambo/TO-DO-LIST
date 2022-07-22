@@ -1,4 +1,4 @@
-import { updateCompleted, clearCompleted } from './edit';
+import { clearCompleted } from './edit';
 import { Task, Store } from './functions';
 
 let task = new Task(1, 'Baba ndiye orezo');
@@ -17,6 +17,12 @@ const editInput = (index, description) => {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 };
 
+const updateCompleted = (index) => {
+  const task = tasks.find((task) => task.index === index);
+  task.completed = true;
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+};
+
 const list = document.querySelector('.task-entry').value;
 
 describe('Edit Update and clear from list', () => {
@@ -29,11 +35,10 @@ describe('Edit Update and clear from list', () => {
     expect(task.description).not.toEqual(list);
   });
 
-  // test('updates the status of the list item', () => {
-  //   const tasks = Store.getTasks();
-  //   updateCompleted(1);
-  //   expect(tasks).toEqual(true);
-  // });
+  test('updates the status of the list item', () => {
+    updateCompleted(1);
+    expect(task.completed).toEqual(true);
+  });
 
   test('clears the list item', () => {
     const tasks = Store.getTasks();
