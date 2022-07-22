@@ -6,7 +6,7 @@
 - Major languages 
   HTML | JavaScript
 - Frameworks
-    Bootsrap | Jest
+    Bootstrap | Jest
   
  ### Prerequisites
 HTML || CSS

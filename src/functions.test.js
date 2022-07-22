@@ -2,7 +2,7 @@ import { Store, Events } from './functions';
 
 document.body.innerHTML = `
     <div id="to-dos" class="added-list">
-      <div class="item" id="remove"></div>
+      <div class="item" id="input"></div>
     </div>
 `;
 
