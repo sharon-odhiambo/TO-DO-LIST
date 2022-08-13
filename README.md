@@ -17,7 +17,7 @@ HTML || CSS
 
 
 ### Live Demo
-[Link](https://sharon-odhiambo.github.io/sharon-odhiambo.github.io-TO-DO-LIST/dist/)
+[Link](https://sharon-odhiambo.github.io/TO-DO-LIST/)
 ### Getting Started
 To get a local copy for practice or as a template, follow these simple steps.
 
